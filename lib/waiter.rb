@@ -18,4 +18,10 @@ class Waiter
     Meal.new(self, customer, total, tip)
   end
   
+  def meals
+    Meal.all.select do |x|
+      x if x.waiter.name == self.name
+    end
+  end
+  
 end
